@@ -56,6 +56,7 @@ class ViewController: UIViewController {
         if let selectedRange = textView.selectedTextRange {
             let cursorIndex = textView.offset(from: textView.beginningOfDocument, to: selectedRange.start)
             currentAtStr.insert(attachmentAtStr, at: cursorIndex)
+            currentAtStr.addAttributes(self.textView.typingAttributes, range: NSRange(location: cursorIndex, length: 1))
         } else {
             currentAtStr.append(attachmentAtStr)
         }
